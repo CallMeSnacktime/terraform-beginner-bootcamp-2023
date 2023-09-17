@@ -22,16 +22,16 @@ Additional labels for pre-release and build metadata are available as extensions
 ### Considerations with the Terraform CLI changes
 The Terraform CLI installation instructions due to gpg keyring changes. I needed to refer to the latest CLI instructions via terraform Documentation and change the scripting for install
 
-[Install Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+- [Install Terraform CLI](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
 
 ### Considerations for Linux Distributions
 
 This project is built on Ubuntu. Please consider checking your Linux Distribution and change accordingly to your needs
 
-[How To Check OS Version](https://www.cyberciti.biz/faq/how-to-check-os-version-in-linux-command-line/)
+- [How To Check OS Version](https://www.cyberciti.biz/faq/how-to-check-os-version-in-linux-command-line/)
 
-Example of checking OS Version
+Example of checking OS Version:
 ```
 $ cat /etc/os-release
 
@@ -87,13 +87,13 @@ This bash script is located at [./bin/install_terraform_cli](./bin/install_terra
 
 ### Shebang 
 
-A Shebang (Sha-bang) tells the bash script what program will interpret the script. eg. `#!/bin/bash`
+A [Shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) (Sha-bang) tells the bash script what program will interpret the script. eg. `#!/bin/bash`
 
 CHATGPT recommended this format for bash `#!/usr/bin/env bash`
 - Portability for different distributions
 - Will seartch user's PATH for bash executable
 
-https://en.wikipedia.org/wiki/Shebang_(Unix)
+
 
 #### Execution Considerations
 
@@ -118,12 +118,10 @@ Alternatively:
 ```sh
 chmod 744 ./bin/install_terraform_cli
 ```
+- [Chmod Wiki](https://en.wikipedia.org/wiki/Chmod)
 
 ### Github Lifecycle (Before, Init, Command)
 
 We need to becare when using the Init command because it will not rerun if we restart on an existing workspace.
 
-
-
-https://en.wikipedia.org/wiki/Chmod
-https://www.gitpod.io/docs/configure/workspaces/tasks
+- [Gitpod Workspace Docs](https://www.gitpod.io/docs/configure/workspaces/tasks)
