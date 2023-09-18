@@ -220,6 +220,10 @@ Terraform source their providers and modules form the Terraform registry, which 
 - **Providers** are interfaces to APIs that will allow you to create resources in terraform.
 - **Modules** a way to make large amounts of terraform code modular, portable and sharable.
 
+##### Random Module 
+
+This module was used for random name creation for the S3 bucket. It generated a name that went again [S3 naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) but that was remedied but using the *upper* and *special* tags.
+
 [Random Terraform Provider](https://registry.terraform.io/providers/hashicorp/random)
 
 ### Terraform Console
