@@ -276,3 +276,47 @@ If you lose this file, ou lose knowing the state of your infrastructure
 #### Terraform Directory
 
 `.terraform` directory contains binaries of terraform providers.
+
+
+## Terraform Cloud
+
+
+### Getting Started
+
+More details on the following sections can be found in the [Terraform Getting Started](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-remote?wvideo=a2i7g8n5zj) page.
+
+#### Terraform Login
+
+
+When attempting to run `terraform login` it will launch a bash prompt to generate a token. 
+
+The workaround is to manually generate a token in Terraform Cloud
+```
+https://app.terraform.io/app/settings/tokens?source=terraform-login
+```
+
+Then create file and open the file manually here:
+```sh
+touch /home/gitpod/.terraform.d/credentials.tfrc.json
+open /home/gitpod/.terraform.d/credentials.tfrc.json
+```
+Provide the following code (replace your token in the file)
+
+```json
+{
+    "credentials": {
+        "app.terraform.io": {
+            "token": "Your-Token-Here"
+        }
+    }
+}
+```
+
+#### Terraform Cloud AWS Credentials
+
+When using Terraform Cloud, the AWS environment varibles need to be set in your workspace before you're about to use the `terraform plan` command. At a minumum you need to set:
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
+- AWS_REGION
+
+

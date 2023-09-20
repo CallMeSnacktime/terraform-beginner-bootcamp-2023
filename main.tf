@@ -1,4 +1,13 @@
 terraform {
+
+  cloud {
+    organization = "CallMeSnacktime"
+
+    workspaces {
+      name = "terra-house-1"
+    }
+  }
+
   required_providers {
     random = {
       source = "hashicorp/random"
@@ -13,7 +22,6 @@ terraform {
 
 
 provider "aws" {
-  # Configuration options
 }
 
 provider "random" {
