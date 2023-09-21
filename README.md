@@ -312,6 +312,8 @@ Provide the following code (replace your token in the file)
 }
 ```
 
+We have automated a workaround using the following bash script [bin/generate_tfrc_credentials](bin/generate_tfrc_credentials)
+
 #### Terraform Cloud AWS Credentials
 
 When using Terraform Cloud, the AWS environment varibles need to be set in your workspace before you're about to use the `terraform plan` command. At a minumum you need to set:
