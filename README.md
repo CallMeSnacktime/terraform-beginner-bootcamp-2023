@@ -1,5 +1,36 @@
 # Terraform Beginner Bootcamp 2023
 
+## Table of Contents
+
+- [Semantic Versioning](#semantic-versioning-mage)
+- [Install the Terraform CLI](#install-the-terraform-cli)
+    * [Considerations with the Terraform CLI changes](#considerations-with-the-terraform-cli-changes)
+    * [Considerations for Linux Distributions](#considerations-for-linux-distributions)
+    * [Refactoring into Bash Scripts](#refactoring-into-bash-scripts)
+        + [Shebang](#shebang)
+        + [Execution Considerations](#execution-considerations)
+        + [Linux Permissions Considerations](#linux-permissions-considerations)
+- [Gitpod Lifecycle (Before, Init, Command)](#gitpod-lifecycle-before-init-command)
+- [Working Env Vars](#working-env-vars)
+    * [env command](#env-command)
+    * [Setting and Unsetting Env Vars](#setting-and-unsetting-env-vars)
+    * [Scoping of Env Vars](#scoping-of-env-vars)
+    * [Persisting Env Vars in Gitpod](#persisting-env-vars-in-gitpod)
+- [AWS CLI Installation](#aws-cli-installation)
+- [Terraform](#terraform-basics)
+    * [Terraform Registry](#terrraform-registry)
+    * [Terraform Console](#terraform-console)
+        + [Terraform Init](#terraform-init)
+        + [Terraform Plan](#terraform-plan)
+        + [Terraform Apply](#terraform-apply)
+        + [Terraform Destroy](#terraform-destroy)
+        + [Terraform Lock Files](#terraform-lock-files)
+        + [Terraform State FIles](#terraform-state-files)
+        + [Terraform Directory](#terraform-directory)
+- [Terraform Cloud](#terraform-cloud)
+    * [Terraform Login](#terraform-login)
+    * [Terraform Cloud AWS Credentials](#terraform-cloud-aws-credentials)
+
 ## Semantic Versioning :mage:
 
 
@@ -75,7 +106,7 @@ Release:        22.04
 Codename:       jammy
 ```
 
-### Refacoring into Bash Scripts
+### Refactoring into Bash Scripts
 
 While fixing the the Terraform CLI gpg depreciation issues I noticed the bash comand steps were a considerable amount more could. So I dicided to create a bash script to install the Terraform CLI
 
@@ -120,21 +151,21 @@ chmod 744 ./bin/install_terraform_cli
 ```
 - [Chmod Wiki](https://en.wikipedia.org/wiki/Chmod)
 
-### Github Lifecycle (Before, Init, Command)
+## Gitpod Lifecycle (Before, Init, Command)
 
 We need to becare when using the Init command because it will not rerun if we restart on an existing workspace.
 
 - [Gitpod Workspace Docs](https://www.gitpod.io/docs/configure/workspaces/tasks)
 
-### Working Env Vars
+## Working Env Vars
 
-#### env command
+### env command
 
 We can list all Environment Variables (Env Vars) using the `env` command
 
 We can filter specific env vars using grep eg. `env | grap AWS_`
 
-#### Setting and Unsetting Env Vars
+### Setting and Unsetting Env Vars
 
 In the terminal we can set using `export /workspace/terraform-beginner-bootcamp-2023`
 
@@ -156,17 +187,17 @@ HELLO='world'
 echo $HELLO
 ```
 
-#### Printing Vars
+### Printing Vars
 
 We can print an env var using echo eg. `echo $HELLO`
 
-#### Scoping of Env Vars
+### Scoping of Env Vars
 
 When you open up new bash terminals in VSCode it will not be aware of env vars that you have set in another window. 
 
 If you want env vars to persist acoos all future ternimals that you open, you need to set env vars in your bash profile. eg. `bash_profile`
 
-#### Persisting Env Vars in Gitpod
+### Persisting Env Vars in Gitpod
 
 We can persist env vars in gitpod by storing them in Gitpod Secrets Storage
 
@@ -178,7 +209,7 @@ All future workspaces launched will set the env vars for all bash terminals open
 
 You can also set env vars in the `.gitpod.yam` but this can only contain non-sentivie env vars.
 
-### AWS CLI Installation
+## AWS CLI Installation
 
 AWS CLI is installed for this project via the bash script [`./bin/install_aws_cli`](./bin/install_aws_cli)
 
@@ -285,7 +316,7 @@ If you lose this file, ou lose knowing the state of your infrastructure
 
 More details on the following sections can be found in the [Terraform Getting Started](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-remote?wvideo=a2i7g8n5zj) page.
 
-#### Terraform Login
+### Terraform Login
 
 
 When attempting to run `terraform login` it will launch a bash prompt to generate a token. 
@@ -314,7 +345,7 @@ Provide the following code (replace your token in the file)
 
 We have automated a workaround using the following bash script [bin/generate_tfrc_credentials](bin/generate_tfrc_credentials)
 
-#### Terraform Cloud AWS Credentials
+### Terraform Cloud AWS Credentials
 
 When using Terraform Cloud, the AWS environment varibles need to be set in your workspace before you're about to use the `terraform plan` command. At a minumum you need to set:
 - AWS_ACCESS_KEY_ID
