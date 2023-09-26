@@ -48,4 +48,4 @@ This is the default file to load in terraform variables in bulk
 
 ### Order of terraform variables
 
-- TODO: document which terrafrom settings takes precedence 
+- TODO: document which terrafrom settings takes precedence.
