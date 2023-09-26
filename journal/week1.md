@@ -46,6 +46,6 @@ This is the default file to load in terraform variables in bulk
 
 - TODO: document this functionality for terraform cloud
 
-### Order of terraform variables
+### Order of Terraform Variables
 
 - TODO: document which terrafrom settings takes precedence.
