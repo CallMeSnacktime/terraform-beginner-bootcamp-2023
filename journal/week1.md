@@ -123,3 +123,10 @@ module "terrahouse_aws"{
 ```
 
 [Module Sources](https://developer.hashicorp.com/terraform/language/modules/sources)
+
+
+## Considerations when using ChatGPT to write Terraform
+
+LLMs such as ChatGPT may not be trained on the latest documentation or information about terraform.
+
+It may likely produce older examples tha could be deprecated. Often affecting provideers.
