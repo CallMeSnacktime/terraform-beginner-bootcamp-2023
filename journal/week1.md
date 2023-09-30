@@ -1,5 +1,7 @@
 # Terraform Beginner Bootcamp 2023 - Week 1
 
+![image](https://github.com/CallMeSnacktime/terraform-beginner-bootcamp-2023/assets/26889538/8049a3c4-1e55-4cdd-a1ab-89357f0061e1)
+
 
 ## Root Module Structure
 
