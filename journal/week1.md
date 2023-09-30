@@ -49,3 +49,27 @@ This is the default file to load in terraform variables in bulk
 ### Order of Terraform Variables
 
 - TODO: document which terrafrom settings takes precedence.
+
+## Dealing With Configuration Drift
+
+
+
+## What happens if you lose lose your state file?
+
+If you lose your state fale, you most likely have to tear down all your cloud infrastructure manually.
+
+You can use terraform import but it won't work for all cloud resources. You need to check the terraform providers documentation for which resources support  import.
+
+### Fix Missing Resources with Terraform Import
+
+`terraform import aws_s3_bucket.bucket bucket-name`
+
+[Terraform Import](https://developer.hashicorp.com/terraform/cli/import)
+[AWS S3 Bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
+- TODO: Figure out import.tf
+
+### Fix Manual Configuration
+
+When someone deletes/modifies cloud resources manually through *ClickOps*.
+
+If we run `terraform plan` again, it will attempt to put our infrastructure back into the expected state fixing configuration drift.
