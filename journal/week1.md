@@ -61,7 +61,7 @@ We can use the `-var` flag to set an input variable or override a variable in th
 
 ### var file
 
-- TODO: document this flag
+To set lots of variables, it is more convenient to specify their values in a variable definitions file
 
 ### terraform.tfvars
 
@@ -69,11 +69,16 @@ This is the default file to load in terraform variables in bulk
 
 ### auto.tfvars
 
-- TODO: document this functionality for terraform cloud
+Terraform automatically loads files ending with .auto.tfvars or .auto.tfvars.json
 
 ### Order of Terraform Variables
 
-- TODO: document which terrafrom settings takes precedence.
+Terraform loads variables in the following order, with later sources taking precedence over earlier ones:
+- Environment Variables
+- The terraform.tfvars file, if present
+- The terraform.tfvars.json file, if present.
+- Any *.auto.tfvars or *.auto.tfvars.json files, processed in lexical order of their filenames.
+- Any -var and -var-file options on the command line, in the order they are provided.
 
 ## Dealing With Configuration Drift
 
@@ -91,7 +96,13 @@ You can use terraform import but it won't work for all cloud resources. You need
 
 [Terraform Import](https://developer.hashicorp.com/terraform/cli/import)
 [AWS S3 Bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#import)
-- TODO: Figure out import.tf
+
+```
+import {
+  to = aws_s3_bucket.bucket
+  id = "bucket-name"
+}
+```
 
 ### Fix Manual Configuration
 
